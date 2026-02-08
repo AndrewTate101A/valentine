@@ -25,22 +25,30 @@ body {
   background: rgba(255, 192, 203, 0.85);
   height: 100%;
   width: 100%;
-  padding-top: 20px;
+  padding-top: 30px;
 }
 
 h1 {
-  font-size: 26px;
+  font-size: 1.7rem;
   margin-bottom: 10px;
 }
 
-h2 {
-  font-size: 20px;
+#countdown {
+  font-size: 1.1rem;
+  margin-top: 10px;
 }
 
-.cat {
-  width: 100px;
+/* SIDE GIFS */
+.side-gif {
   position: absolute;
+  width: 90px;
 }
+
+.g1 { top: 10%; left: 2%; }
+.g2 { top: 30%; right: 2%; }
+.g3 { top: 55%; left: 2%; }
+.g4 { bottom: 20%; right: 2%; }
+.g5 { bottom: 5%; left: 40%; }
 
 .heart {
   position: absolute;
@@ -52,23 +60,6 @@ h2 {
   from { top: -10%; opacity: 1; }
   to { top: 110%; opacity: 0; }
 }
-
-.confetti {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  animation: confetti 3s linear infinite;
-}
-
-@keyframes confetti {
-  from { top: -10%; }
-  to { top: 110%; }
-}
-
-#countdown {
-  margin-top: 15px;
-  font-size: 18px;
-}
 </style>
 </head>
 
@@ -79,19 +70,20 @@ h2 {
 </audio>
 
 <div class="overlay">
-  <h1>Let’s stay together for<br>10000 years!! 💖💞💘</h1>
-
-  <h2>Forever you & me 🐱🐱</h2>
+  <h1>
+    Let’s stay together for<br>
+    10000 years!! 💖🥰💞✨
+  </h1>
 
   <div id="countdown"></div>
 </div>
 
-<!-- Cats -->
-<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:60%; left:15%;">
-<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:60%; right:15%;">
-<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:20%; left:5%;">
-<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:20%; right:5%;">
-<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:40%; left:40%;">
+<!-- SIDE GIFS -->
+<img class="side-gif g1" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
+<img class="side-gif g2" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
+<img class="side-gif g3" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
+<img class="side-gif g4" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
+<img class="side-gif g5" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
 
 <script>
 // Falling hearts
@@ -99,7 +91,34 @@ for (let i = 0; i < 25; i++) {
   let heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💖";
-  heart.style.left = Math.ra
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+  document.body.appendChild(heart);
+}
+
+// Countdown
+function updateCountdown() {
+  const valentine = new Date("Feb 14, 2026 00:00:00").getTime();
+  const now = new Date().getTime();
+  const diff = valentine - now;
+
+  if (diff < 0) {
+    document.getElementById("countdown").innerHTML = "💖 Happy Valentine’s Day 💖";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("countdown").innerHTML =
+    `Valentine’s Day in 💕 ${days} days`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
+
 
 
 
