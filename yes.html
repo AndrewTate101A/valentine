@@ -45,8 +45,8 @@ h1 {
   pointer-events: none;
 }
 
-/* FINAL SAFE POSITIONS */
-.g1 { top: 62%; left: 2%; }   /* TOP-LEFT — MOVED FAR DOWN */
+/* FINAL POSITIONS */
+.g1 { top: 52%; left: 2%; }   /* 👈 MOVED A BIT UP */
 .g2 { top: 45%; right: 2%; }
 .g3 { top: 75%; left: 2%; }
 .g4 { bottom: 18%; right: 2%; }
@@ -98,7 +98,7 @@ for (let i = 0; i < 25; i++) {
   document.body.appendChild(heart);
 }
 
-// Countdown to Valentine’s Day
+// Countdown
 function updateCountdown() {
   const valentine = new Date("Feb 14, 2026 00:00:00").getTime();
   const now = new Date().getTime();
