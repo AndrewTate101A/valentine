@@ -25,7 +25,7 @@ body {
   background: rgba(255, 192, 203, 0.85);
   height: 100%;
   width: 100%;
-  padding-top: 40px;
+  padding-top: 80px;   /* 👈 TEXT MOVED LOWER */
 }
 
 h1 {
@@ -45,8 +45,7 @@ h1 {
   pointer-events: none;
 }
 
-/* FINAL SAFE POSITIONS */
-.g1 { top: 62%; left: 2%; }   /* TOP-LEFT — MOVED FAR DOWN */
+/* Remaining GIF positions */
 .g2 { top: 45%; right: 2%; }
 .g3 { top: 75%; left: 2%; }
 .g4 { bottom: 18%; right: 2%; }
@@ -80,8 +79,7 @@ h1 {
   <div id="countdown"></div>
 </div>
 
-<!-- SIDE CAT GIFS -->
-<img class="side-gif g1" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
+<!-- SIDE CAT GIFS (g1 REMOVED) -->
 <img class="side-gif g2" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
 <img class="side-gif g3" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
 <img class="side-gif g4" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif">
@@ -98,7 +96,7 @@ for (let i = 0; i < 25; i++) {
   document.body.appendChild(heart);
 }
 
-// Countdown to Valentine’s Day
+// Countdown
 function updateCountdown() {
   const valentine = new Date("Feb 14, 2026 00:00:00").getTime();
   const now = new Date().getTime();
@@ -121,6 +119,7 @@ updateCountdown();
 
 </body>
 </html>
+
 
 
 
