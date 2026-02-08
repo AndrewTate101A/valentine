@@ -3,86 +3,103 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forever 💕</title>
+<title>Forever 💖</title>
 
 <style>
-  body {
-    margin: 0;
-    height: 100vh;
-    background: url("bg.jpg") center / cover no-repeat;
-    font-family: "Comic Sans MS", cursive;
-    color: hotpink;
-    overflow: hidden;
-    text-align: center;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Comic Sans MS', cursive;
+  overflow: hidden;
+}
 
-  h1 {
-    margin-top: 20vh;
-    font-size: 2rem;
-    background: rgba(255,182,193,0.6);
-    padding: 20px;
-    border-radius: 20px;
-    display: inline-block;
-  }
+body {
+  background: url("./bg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  text-align: center;
+  color: hotpink;
+}
 
-  .heart {
-    position: absolute;
-    color: pink;
-    font-size: 20px;
-    animation: fall 5s linear infinite;
-  }
+.overlay {
+  background: rgba(255, 192, 203, 0.85);
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+}
 
-  @keyframes fall {
-    0% { top: -10%; opacity: 1; }
-    100% { top: 110%; opacity: 0; }
-  }
+h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
 
-  #countdown {
-    margin-top: 20px;
-    font-size: 1.2rem;
-  }
+h2 {
+  font-size: 20px;
+}
+
+.cat {
+  width: 100px;
+  position: absolute;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  from { top: -10%; opacity: 1; }
+  to { top: 110%; opacity: 0; }
+}
+
+.confetti {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  animation: confetti 3s linear infinite;
+}
+
+@keyframes confetti {
+  from { top: -10%; }
+  to { top: 110%; }
+}
+
+#countdown {
+  margin-top: 15px;
+  font-size: 18px;
+}
 </style>
 </head>
 
 <body>
 
-<h1>
-  Let’s stay together for<br>
-  10000 years!! 💞💍💖
-  <div id="countdown"></div>
-</h1>
-
 <audio autoplay loop>
-  <source src="happy-happy-happy-song.mp3" type="audio/mpeg">
+  <source src="./happy-happy-happy-song.mp3" type="audio/mpeg">
 </audio>
 
+<div class="overlay">
+  <h1>Let’s stay together for<br>10000 years!! 💖💞💘</h1>
+
+  <h2>Forever you & me 🐱🐱</h2>
+
+  <div id="countdown"></div>
+</div>
+
+<!-- Cats -->
+<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:60%; left:15%;">
+<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:60%; right:15%;">
+<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:20%; left:5%;">
+<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:20%; right:5%;">
+<img class="cat" src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif" style="top:40%; left:40%;">
+
 <script>
-  function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText = "💖";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
-  }
-
-  setInterval(createHeart, 300);
-
-  const valentine = new Date("February 14, 2026 00:00:00").getTime();
-  const cd = document.getElementById("countdown");
-
-  setInterval(() => {
-    const now = new Date().getTime();
-    const diff = valentine - now;
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    cd.innerHTML = `Valentine in ${d} days 💕`;
-  }, 1000);
-</script>
-
-</body>
-</html>
+// Falling hearts
+for (let i = 0; i < 25; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.ra
 
 
 
