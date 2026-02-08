@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Valentine 💖</title>
 
 <style>
@@ -20,29 +19,32 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .container {
   text-align: center;
   background: rgba(255, 192, 203, 0.85);
-  padding: 25px;
-  border-radius: 20px;
+  padding: 22px;
+  border-radius: 22px;
   width: 90%;
-  max-width: 350px;
+  max-width: 360px;
+  margin-top: -60px; /* 👈 moves text UP */
 }
 
 h1 {
   color: hotpink;
-  font-size: 24px;
+  font-size: 1.6rem;
 }
 
 button {
-  font-size: 18px;
+  font-size: 1.1rem;
   padding: 12px 20px;
   border-radius: 30px;
   border: none;
   cursor: pointer;
   position: absolute;
+  font-weight: bold;
 }
 
 #yes {
@@ -66,14 +68,14 @@ button {
 <body>
 
 <div class="container">
-  <h1>Will you be my Valentine<br>my devukutty? 💖💞</h1>
+  <h1>
+    Will you be my Valentine<br>
+    my devukutty?? 💖🥰💕
+  </h1>
 </div>
 
-<button id="yes" onclick="goYes()">YES 💘</button>
+<button id="yes">YES 💘</button>
 <button id="alsoyes">ALSO YES 😽</button>
-
-<img src="https://media.giphy.com/media/T70hpBP1L0N7U0jtkq/giphy.gif"
-     style="width:120px; position:absolute; bottom:10px; left:50%; transform:translateX(-50%);">
 
 <script>
 let moves = 0;
@@ -85,18 +87,28 @@ function move(btn) {
   btn.style.top = Math.random() * 70 + "%";
 }
 
-document.getElementById("yes").addEventListener("mouseover", function() {
+document.getElementById("yes").addEventListener("mouseover", function () {
+  move(this);
+});
+document.getElementById("yes").addEventListener("touchstart", function () {
   move(this);
 });
 
-document.getElementById("alsoyes").addEventListener("mouseover", function() {
+document.getElementById("alsoyes").addEventListener("mouseover", function () {
+  move(this);
+});
+document.getElementById("alsoyes").addEventListener("touchstart", function () {
   move(this);
 });
 
-function goYes() {
-  window.location.href = "yes.html";
-}
+setTimeout(() => {
+  document.getElementById("yes").onclick =
+  document.getElementById("alsoyes").onclick =
+    () => window.location.href = "yes.html";
+}, 3000);
 </script>
 
 </body>
 </html>
+
+
