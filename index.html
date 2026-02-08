@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine 💖</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: url("bg.jpg") center / cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Comic Sans MS", cursive;
+    overflow: hidden;
+  }
+
+  .card {
+    background: rgba(255, 182, 193, 0.6);
+    padding: 22px;
+    border-radius: 22px;
+    text-align: center;
+    width: 90%;
+    max-width: 380px;
+  }
+
+  h1 {
+    color: hotpink;
+    font-size: 1.9rem;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    position: absolute;
+    padding: 14px 22px;
+    font-size: 1.1rem;
+    border-radius: 30px;
+    border: none;
+    background: hotpink;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>
+    Will you be my Valentine<br>
+    my devukutty?? 💖🥰💕
+  </h1>
+</div>
+
+<button class="btn" id="yes">YES 💘</button>
+<button class="btn" id="also">ALSO YES 😽</button>
+
+<script>
+  const buttons = document.querySelectorAll(".btn");
+  const maxMoves = 5;
+
+  buttons.forEach(btn => {
+    let moves = 0;
+
+    btn.style.left = "40%";
+    btn.style.top = btn.id === "yes" ? "65%" : "75%";
+
+    function moveButton() {
+      if (moves < maxMoves) {
+        const x = Math.random() * (window.innerWidth - 120);
+        const y = Math.random() * (window.innerHeight - 80);
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+        moves++;
+      } else {
+        btn.onclick = () => window.location.href = "yes.html";
+      }
+    }
+
+    btn.addEventListener("mouseover", moveButton);
+    btn.addEventListener("touchstart", moveButton);
+  });
+</script>
+
+</body>
+</html>
+
