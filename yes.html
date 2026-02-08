@@ -25,7 +25,7 @@ body {
   background: rgba(255, 192, 203, 0.85);
   height: 100%;
   width: 100%;
-  padding-top: 30px;
+  padding-top: 35px;
 }
 
 h1 {
@@ -44,9 +44,10 @@ h1 {
   width: 90px;
 }
 
-.g1 { top: 10%; left: 2%; }
-.g2 { top: 30%; right: 2%; }
-.g3 { top: 55%; left: 2%; }
+/* adjusted positions */
+.g1 { top: 12%; left: 2%; }
+.g2 { top: 42%; right: 2%; }   /* 👈 MOVED DOWN */
+.g3 { top: 60%; left: 2%; }
 .g4 { bottom: 20%; right: 2%; }
 .g5 { bottom: 5%; left: 40%; }
 
@@ -103,7 +104,8 @@ function updateCountdown() {
   const diff = valentine - now;
 
   if (diff < 0) {
-    document.getElementById("countdown").innerHTML = "💖 Happy Valentine’s Day 💖";
+    document.getElementById("countdown").innerHTML =
+      "💖 Happy Valentine’s Day 💖";
     return;
   }
 
@@ -118,7 +120,6 @@ updateCountdown();
 
 </body>
 </html>
-
 
 
 
